@@ -11,6 +11,7 @@ const userSlice=createSlice({
   reducers:{
     loaduser:(state,action)=>{
       console.log(action);
+      state.data=action.payload;
       
     }
   },
