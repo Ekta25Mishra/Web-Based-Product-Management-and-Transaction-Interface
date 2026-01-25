@@ -1,13 +1,20 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { asyncdeleteproduct, asyncupdateproduct } from "../../store/actions/productActions";
+import {
+  asyncdeleteproduct,
+  asyncupdateproduct,
+} from "../../store/actions/productActions";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const products = useSelector((state) => state.productReducer.products);
+  const {
+    productReducer: { products },
+    userReducer: { users },
+  } = useSelector((state) => state);
   const product = products?.find((product) => product.id == id);
-  console.log(product);
+  console.log(products, users);
+  
 
   const { register, reset, handleSubmit } = useForm({
     defaultValues: {
@@ -57,8 +64,9 @@ const ProductDetails = () => {
             </button>
           </div>
         </div>
-
-        {/* Update Form */}
+{/* Update Form */}
+        {users?.data?.[0]?.isAdmin && (
+        
         <div className="bg-white rounded-2xl shadow-md p-8">
           <h2 className="text-lg font-semibold text-gray-800 mb-6">
             Update Product
@@ -121,17 +129,16 @@ const ProductDetails = () => {
               Update Product
             </button>
             <button
-            onClick={DeleteHandler}
-            type="button"
-            className="w-full py-3 rounded-xl bg-red-900 text-white 
+              onClick={DeleteHandler}
+              type="button"
+              className="w-full py-3 rounded-xl bg-red-900 text-white 
                          font-medium hover:bg-red-800 transition-colors"
-          >
-            Delete Product
-          </button>
+            >
+              Delete Product
+            </button>
           </form>
-
-          
         </div>
+        )}
       </div>
     </div>
   ) : (
