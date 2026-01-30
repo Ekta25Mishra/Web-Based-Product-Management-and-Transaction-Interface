@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import UserProfile from "../pages/user/UserProfile";
 import PageNotFound from "../pages/PageNotFound";
 import AuthWrapper from "./authWrapper";
+import Cart from "../pages/Cart";
 
 const Mainroutes = () => {
   return (
@@ -19,8 +20,12 @@ const Mainroutes = () => {
 
       
         <Route path="/admin/create-product" element={<AuthWrapper><CreateProduct /></AuthWrapper>} />
+
         <Route path="/admin/user-profile" element={<AuthWrapper><UserProfile /></AuthWrapper>} />
+
         <Route path="/product/:id" element={<AuthWrapper><ProductDetails /></AuthWrapper>} />
+
+        <Route path="/cart" element={<AuthWrapper><Cart /></AuthWrapper>} />
       
       <Route path="*" element={<PageNotFound />} />
     </Routes>

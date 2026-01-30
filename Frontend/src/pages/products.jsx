@@ -1,8 +1,30 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { asyncupdateuser } from "../store/actions/userActions";
 
 const Products = () => {
-  const products = useSelector((state) => state.productReducer.products);
+  const dispatch = useDispatch();
+  const users= useSelector((state) => state.userReducer.users);
+  const products= useSelector((state) => state.productReducer.products);
+
+  const AddtoCartHandler = (product) => {
+    
+    const copyuser = { ...users, cart: [...users.cart] };
+    const x = copyuser.cart.findIndex((c) => c?.product?.id ==product.id);
+
+    if(x == -1){
+      copyuser.cart.push({ product, quantity : 1});
+    }
+    else{
+      copyuser.cart[x]={
+        product,
+        quantity: copyuser.cart[x].quantity + 1
+      }
+    }
+    console.log(copyuser);
+
+    dispatch(asyncupdateuser(copyuser.id, copyuser))
+  };
 
   const renderproduct = products.map((product) => {
     return (
@@ -31,6 +53,7 @@ const Products = () => {
             </p>
 
             <button
+              onClick={() => AddtoCartHandler(product)}
               className="text-xs px-3 py-1.5 rounded-full border border-gray-300 
                          hover:bg-gray-900 hover:text-white transition-colors"
             >

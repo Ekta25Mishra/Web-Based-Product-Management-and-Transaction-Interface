@@ -47,6 +47,17 @@ const Nav = () => {
         >
           Settings
         </NavLink>
+
+        <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            `text-sm font-medium ${
+              isActive ? "text-gray-900" : "text-gray-500"
+            } hover:text-gray-900 transition`
+          }
+        >
+          Cart
+        </NavLink>
           </>
         ) :(
           <>
