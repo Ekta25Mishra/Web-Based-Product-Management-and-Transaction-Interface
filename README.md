@@ -1,6 +1,5 @@
-# ShopSphere – E-Commerce Web Application
-
-ShopSphere is a shopping website built using React that allows users to browse products, add items to cart, and manage their shopping experience through a clean and responsive UI.
+Web-Based Product Management and Transaction Interface
+It is a shopping website built using React that allows users to browse products, add items to cart, and manage their shopping experience through a clean and responsive UI.
 
 ## Features
 - Product listing
