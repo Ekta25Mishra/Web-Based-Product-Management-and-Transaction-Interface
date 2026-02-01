@@ -3,7 +3,7 @@ import Nav from "./components/Nav"
 import Mainroutes from "./routes/Mainroutes"
 import { useEffect } from "react";
 import { asynccurrentuser } from "./store/actions/userActions";
-import { asyncloadproducts } from "./store/actions/productActions";
+// import { asyncloadproducts } from "./store/actions/productActions";
 
 const App = () => {
 
@@ -15,9 +15,9 @@ const App = () => {
     !users && dispatch(asynccurrentuser());
   },[users]);
 
-  useEffect(()=>{
-    products.length == 0 && dispatch(asyncloadproducts());
-  },[products]);
+  // useEffect(()=>{
+  //   products.length == 0 && dispatch(asyncloadproducts());
+  // },[products]);
 
   return (
     <div className="min-h-screen w-full bg-gray-100 text-gray-800 font-normal">

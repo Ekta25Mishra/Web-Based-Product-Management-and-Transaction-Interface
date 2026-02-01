@@ -6,12 +6,13 @@ const initialState = {
 const productSlice=createSlice({
   name:"product",
   initialState,
-  reducers:{
-    loadproduct:(state,action)=>{
-      state.products=action.payload;
+  reducers:
+  {
+    loadlazyproduct:(state,action)=>{
+      state.products=[...state.products, ...action.payload];
     },
   },
 });
 
 export default productSlice.reducer;
-export const { loadproduct}= productSlice.actions;
+export const { loadproduct, loadlazyproduct}= productSlice.actions;
