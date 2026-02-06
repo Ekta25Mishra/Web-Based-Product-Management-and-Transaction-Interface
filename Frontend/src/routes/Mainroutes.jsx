@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 const Cart = lazy(()=>import("../pages/Cart"))
-const AuthWrapper = lazy(()=>import("./authWrapper"))
+const AuthWrapper = lazy(()=>import("./AuthWrapper"))
 const PageNotFound = lazy(()=>import("../pages/PageNotFound"))
 const UserProfile = lazy(()=>import("../pages/user/UserProfile"))
 const ProductDetails = lazy(()=>import("../pages/admin/ProductDetails"))
